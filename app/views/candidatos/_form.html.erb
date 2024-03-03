@@ -1,0 +1,79 @@
+<%= form_with(model: candidato) do |form| %>
+  <% if candidato.errors.any? %>
+    <h2 style="color: red">Erro. Por favor corrija os campos marcados.</h2>
+  <% end %>
+
+  <div class="campos">
+    <% if candidato.errors[:nome].any? %>
+      <div style="color: red">
+        <ul>
+          <% candidato.errors[:nome].each do |error| %>
+            <li><%= error %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <%= form.label :nome, 'Nome', style: "display: block" %>
+    <%= form.text_field :nome %>
+  </div>
+
+  <div class="campos">
+    <% if candidato.errors[:email].any? %>
+      <div style="color: red">
+        <ul>
+          <% candidato.errors[:email].each do |error| %>
+            <li><%= error %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <%= form.label :email, 'Email', style: "display: block" %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div class="campos">
+    <% if candidato.errors[:cpf].any? %>
+      <div style="color: red">
+        <ul>
+          <% candidato.errors[:cpf].each do |error| %>
+            <li><%= error %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <%= form.label :cpf, 'CPF', style: "display: block" %>
+    <%= form.text_field :cpf %>
+  </div>
+
+  <div class="campos">
+    <% if candidato.errors[:dataNascimento].any? %>
+      <div style="color: red">
+        <ul>
+          <% candidato.errors[:dataNascimento].each do |error| %>
+            <li><%= error %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <%= form.label :dataNascimento, 'Data de nasicmento', style: "display: block" %>
+    <%= form.date_field :dataNascimento %>
+  </div>
+
+  <div class="campos">
+    <% if candidato.errors[:telefone].any? %>
+      <div style="color: red">
+        <ul>
+          <% candidato.errors[:telefone].each do |error| %>
+            <li><%= error %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <%= form.label :telefone, 'Telefone', style: "display: block" %>
+    <%= form.text_field :telefone %>
+  </div>
+
+  <div class="campos">
+    <%= form.submit %>
+  </div>
+<% end %>

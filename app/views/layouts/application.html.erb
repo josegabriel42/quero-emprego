@@ -8,9 +8,72 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
+    <style>
+      a {
+        text-decoration: none;
+      }
+
+      .nav_bar {
+        text-align: center;
+        padding: 20px;
+        border-bottom: 1px solid;
+        margin-bottom: 20px;
+      }
+
+      .nav_bar ul{
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .nav_bar li {
+        display: inline;
+      }
+
+      .nav_bar a:hover {
+        background-color: gray;
+        text-decoration: underline;
+        color: white;
+      }
+
+      .nav_bar a {
+        padding: 20px;
+      }
+
+      .conteudo {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        width: 50%; 
+        padding: 10px; 
+        margin:auto; 
+        text-align: center; 
+        /* border: 1px solid black */
+      }
+
+      .campos {
+        margin: 10px
+      }
+
+      .item_lista {
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.19);
+        width: 80%; 
+        margin:10px auto;
+        padding: 1px; 
+      }
+    </style>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="nav_bar">
+      <ul>
+        <li class="nav_item"><%= link_to "Candidatos", candidatos_path %></li>
+        <li class="nav_item"><%= link_to "Empregadores", candidatos_path %></li>
+        <li class="nav_item"><%= link_to "Vagas", candidatos_path %></li>
+        <li class="nav_item"><%= link_to "Candidaturas", candidatos_path %></li>
+      </ul>
+    </div>
+    <div class="conteudo">
+      <%= yield %>
+    </div>
   </body>
 </html>

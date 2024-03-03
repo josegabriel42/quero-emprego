@@ -1,0 +1,19 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Candidatos</h1>
+<%= link_to "Cadastrar candidato", new_candidato_path %>
+
+<div id="candidatos">
+  <% @candidatos.each do |candidato| %>
+    <div class="item_lista" id="<%= dom_id candidato %>">
+      <p>
+        <strong>Nome:</strong> <%= candidato.nome %> |
+        <strong>CPF:</strong> <%= candidato.cpf %>
+      </p>
+      <p>
+        <%= link_to "Ver", candidato %> |
+        <%= link_to "Candidaturas", candidatos_path %>
+      </p>
+    </div>
+  <% end %>
+</div>
