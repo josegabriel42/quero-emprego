@@ -1,0 +1,12 @@
+CANDIDATO: nome, email, cpf, dataDeNascimento, telefone
+EMPREGADOR: nome, , nomeEmpresa, email, cnpj, endereco, telefone, cnpj
+VAGA: titulo, descricao, salario, EMPREGADOR
+CANDIDATURA: mensagem, CANDIDATO, VAGA
+
+
+VAGA N - 1 EMPREGADOR
+CANDIDATURA N - 1 CANDIDATO
+CANDIDATURA N - N VAGA
+
+
+* Modelo inicial das classes e seus relacionamentos
