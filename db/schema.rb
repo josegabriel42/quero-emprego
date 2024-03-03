@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_03_123956) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_03_153451) do
   create_table "candidatos", force: :cascade do |t|
     t.string "nome", default: "", null: false
     t.string "email", default: "", null: false
@@ -24,16 +24,25 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_03_123956) do
   end
 
   create_table "empregadores", force: :cascade do |t|
-    t.string "nome", default: "", null: false
-    t.string "nomeEmpresa", default: "", null: false
-    t.string "email", default: "", null: false
-    t.string "cnpj", default: "", null: false
-    t.string "endereco", default: "", null: false
-    t.string "telefone", default: "", null: false
+    t.string "nome"
+    t.string "nomeEmpresa"
+    t.string "email"
+    t.string "cnpj"
+    t.string "endereco"
+    t.string "telefone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["cnpj"], name: "index_empregadores_on_cnpj"
-    t.index ["email"], name: "index_empregadores_on_email"
   end
 
+  create_table "vagas", force: :cascade do |t|
+    t.string "titulo"
+    t.text "descricao"
+    t.decimal "salario"
+    t.integer "empregador_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["empregador_id"], name: "index_vagas_on_empregador_id"
+  end
+
+  add_foreign_key "vagas", "empregadores"
 end

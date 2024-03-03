@@ -1,0 +1,51 @@
+<%= form_with(model: [@empregador, @vaga]) do |form| %>
+  <% if vaga.errors.any? %>
+    <h2 style="color: red">Erro. Por favor corrija os campos marcados.</h2>
+  <% end %>
+
+  <div class="campos">
+    <% if vaga.errors[:titulo].any? %>
+      <div style="color: red">
+        <ul>
+          <% vaga.errors[:titulo].each do |error| %>
+            <li><%= error %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <%= form.label :titulo, 'Título', style: "display: block" %>
+    <%= form.text_field :titulo %>
+  </div>
+
+  <div class="campos">
+    <% if vaga.errors[:descricao].any? %>
+      <div style="color: red">
+        <ul>
+          <% vaga.errors[:descricao].each do |error| %>
+            <li><%= error %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <%= form.label :descricao, 'Descrição', style: "display: block" %>
+    <%= form.text_area :descricao %>
+  </div>
+
+  <div class="campos">
+    <% if vaga.errors[:salario].any? %>
+      <div style="color: red">
+        <ul>
+          <% vaga.errors[:salario].each do |error| %>
+            <li><%= error %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <%= form.label :salario, 'Salário', style: "display: block" %>
+    <%= form.number_field :salario, step: 0.01%>
+  </div>
+
+  <div class="campos">
+    <%= form.submit %>
+  </div>
+<% end %>

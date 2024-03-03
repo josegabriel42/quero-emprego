@@ -1,0 +1,17 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @vaga %>
+
+<div>
+  <% if @empregador %>
+    <%= link_to "Editar", edit_empregador_vaga_path(@empregador, @vaga) %> |
+    <%= link_to "Voltar", empregador_vagas_path(@empregador) %>
+  <% else %>
+    <%= link_to "Voltar", vagas_path(@empregador) %>
+  <% end %>
+  <br>
+  <br>
+  <% if @empregador %>
+    <%= button_to "Deletar", [@empregador, @vaga], method: :delete %>
+  <% end %>
+</div>

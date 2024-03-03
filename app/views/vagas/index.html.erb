@@ -1,0 +1,32 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Vagas</h1>
+<% if @empregador %>
+  <h3><%= @empregador.nomeEmpresa %></h3>
+<% end %>
+<% if @empregador %> 
+  <%= link_to "Adicionar vaga", new_empregador_vaga_path %>
+<% end %>
+
+<div id="vagas">
+  <% @vagas.each do |vaga| %>
+    <div class="item_lista" id="<%= dom_id vaga %>">
+      <p>
+        <strong>Título:</strong> <%= vaga.titulo %> |
+        <strong>Salário:</strong> R$ <%= '%.2f' % vaga.salario %>
+        <% unless @empregador %>
+          <br><strong>Empresa:</strong> <%= vaga.empregador.nomeEmpresa %>
+        <% end %>
+      </p>
+      <% if @empregador %> 
+        <p>
+          <%= link_to "Ver", empregador_vaga_path(@empregador, vaga) %>
+        </p>
+      <% else %>
+        <p>
+          <%= link_to "Ver", vaga %>
+        </p>
+      <% end %>
+    </div>
+  <% end %>
+</div>

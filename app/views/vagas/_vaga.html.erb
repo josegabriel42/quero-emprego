@@ -1,0 +1,48 @@
+<div id="<%= dom_id vaga %>">
+  <p>
+    <strong>Título:</strong>
+    <%= vaga.titulo %>
+  </p>
+
+  <p>
+    <strong>Descrição:</strong>
+    <%= vaga.descricao %>
+  </p>
+
+  <p>
+    <strong>Salário:</strong>
+    R$ <%= '%.2f' % vaga.salario %>
+  </p>
+
+  <div class="area_empresa">
+    <p>
+      <strong>Empregador:</strong>
+      <%= vaga.empregador.nome %>
+    </p>
+    
+    <p>
+      <strong>Empresa:</strong>
+      <%= vaga.empregador.nomeEmpresa %>
+    </p>
+
+    <p>
+      <strong>Email:</strong>
+      <%= vaga.empregador.email %>
+    </p>
+
+    <p>
+      <strong>Endereço:</strong>
+      <%= vaga.empregador.endereco %>
+    </p>
+
+    <p>
+      <strong>Telefone:</strong>
+      <%= vaga.empregador.telefone %>
+    </p>
+
+    <p>
+      <strong>CNPJ:</strong>
+      <%= vaga.empregador.cnpj %>
+    </p>
+  </div>
+</div>
