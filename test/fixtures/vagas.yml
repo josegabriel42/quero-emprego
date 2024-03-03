@@ -1,13 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  titulo: MyString
-  descricao: MyText
-  salario: 9.99
-  empregador: one
+# one:
+#   titulo: MyString
+#   descricao: MyText
+#   salario: 9.99
+#   empregador: one
 
-two:
-  titulo: MyString
-  descricao: MyText
-  salario: 9.99
-  empregador: two
+# two:
+#   titulo: MyString
+#   descricao: MyText
+#   salario: 9.99
+#   empregador: two
