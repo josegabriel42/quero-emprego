@@ -24,14 +24,16 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_03_123956) do
   end
 
   create_table "empregadores", force: :cascade do |t|
-    t.string "nome"
-    t.string "nomeEmpresa"
-    t.string "email"
-    t.string "cnpj"
-    t.string "endereco"
-    t.string "telefone"
+    t.string "nome", default: "", null: false
+    t.string "nomeEmpresa", default: "", null: false
+    t.string "email", default: "", null: false
+    t.string "cnpj", default: "", null: false
+    t.string "endereco", default: "", null: false
+    t.string "telefone", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["cnpj"], name: "index_empregadores_on_cnpj"
+    t.index ["email"], name: "index_empregadores_on_email"
   end
 
 end
