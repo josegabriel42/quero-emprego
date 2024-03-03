@@ -1,0 +1,93 @@
+<%= form_with(model: empregador) do |form| %>
+  <% if empregador.errors.any? %>
+    <h2 style="color: red">Erro. Por favor corrija os campos marcados.</h2>
+  <% end %>
+
+  <div class="campos">
+    <% if empregador.errors[:nome].any? %>
+      <div style="color: red">
+        <ul>
+          <% empregador.errors[:nome].each do |error| %>
+            <li><%= error %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <%= form.label :nome, 'Nome', style: "display: block" %>
+    <%= form.text_field :nome %>
+  </div>
+
+  <div class="campos">
+    <% if empregador.errors[:nomeEmpresa].any? %>
+      <div style="color: red">
+        <ul>
+          <% empregador.errors[:nomeEmpresa].each do |error| %>
+            <li><%= error %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <%= form.label :nomeEmpresa, 'Empresa', style: "display: block" %>
+    <%= form.text_field :nomeEmpresa %>
+  </div>
+
+  <div class="campos">
+    <% if empregador.errors[:email].any? %>
+      <div style="color: red">
+        <ul>
+          <% empregador.errors[:email].each do |error| %>
+            <li><%= error %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <%= form.label :email, style: "display: block" %>
+    <%= form.text_field :email, placeholder: 'example@email.ok' %>
+  </div>
+
+  <div class="campos">
+    <% if empregador.errors[:cnpj].any? %>
+      <div style="color: red">
+        <ul>
+          <% empregador.errors[:cnpj].each do |error| %>
+            <li><%= error %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <%= form.label :cnpj, 'CNPJ', style: "display: block" %>
+    <%= form.text_field :cnpj, placeholder: '00.000.000/0001-00' %>
+  </div>
+
+  <div class="campos">
+    <% if empregador.errors[:endereco].any? %>
+      <div style="color: red">
+        <ul>
+          <% empregador.errors[:endereco].each do |error| %>
+            <li><%= error %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <%= form.label :endereco, style: "display: block" %>
+    <%= form.text_field :endereco %>
+  </div>
+
+  <div class="campos">
+    <% if empregador.errors[:telefone].any? %>
+      <div style="color: red">
+        <ul>
+          <% empregador.errors[:telefone].each do |error| %>
+            <li><%= error %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <%= form.label :telefone, style: "display: block" %>
+    <%= form.text_field :telefone %>
+  </div>
+
+  <div class="campos">
+    <%= form.submit %>
+  </div>
+<% end %>

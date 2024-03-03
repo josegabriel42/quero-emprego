@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_03_105835) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_03_123956) do
   create_table "candidatos", force: :cascade do |t|
     t.string "nome", default: "", null: false
     t.string "email", default: "", null: false
@@ -21,6 +21,17 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_03_105835) do
     t.datetime "updated_at", null: false
     t.index ["cpf"], name: "index_candidatos_on_cpf"
     t.index ["email"], name: "index_candidatos_on_email"
+  end
+
+  create_table "empregadores", force: :cascade do |t|
+    t.string "nome"
+    t.string "nomeEmpresa"
+    t.string "email"
+    t.string "cnpj"
+    t.string "endereco"
+    t.string "telefone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

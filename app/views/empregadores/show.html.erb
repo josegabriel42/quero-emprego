@@ -1,0 +1,11 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @empregador %>
+
+<div>
+  <%= link_to "Editar", edit_empregador_path(@empregador) %> |
+  <%= link_to "Voltar", empregadores_path %>
+  <br>
+  <br>
+  <%= button_to "Deletar", @empregador, method: :delete %>
+</div>

@@ -1,0 +1,21 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Empregadores</h1>
+<%= link_to "Cadastrar empregador", new_empregador_path %>
+
+<div id="empregadores">
+  <% @empregadores.each do |empregador| %>
+    <div class="item_lista" id="<%= dom_id empregador %>">
+      <p>
+        <strong>Nome:</strong> <%= empregador.nome %> |
+        <strong>Empresa:</strong> <%= empregador.nomeEmpresa %> |
+        <strong>CNPJ:</strong> <%= empregador.cnpj %>
+      </p>
+      <p>
+        <%= link_to "Ver", empregador %> |
+        <%= link_to "Vagas", empregadores_path %>
+      </p>
+    </div>
+    <p>
+  <% end %>
+</div>
