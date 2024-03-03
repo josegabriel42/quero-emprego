@@ -12,13 +12,15 @@
 
 ActiveRecord::Schema[7.0].define(version: 2024_03_03_105835) do
   create_table "candidatos", force: :cascade do |t|
-    t.string "nome"
-    t.string "email"
-    t.string "cpf"
-    t.date "dataNascimento"
-    t.string "telefone"
+    t.string "nome", default: "", null: false
+    t.string "email", default: "", null: false
+    t.string "cpf", default: "", null: false
+    t.date "dataNascimento", null: false
+    t.string "telefone", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["cpf"], name: "index_candidatos_on_cpf"
+    t.index ["email"], name: "index_candidatos_on_email"
   end
 
 end
