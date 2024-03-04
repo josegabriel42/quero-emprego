@@ -1,5 +1,5 @@
 class Empregador < ApplicationRecord
-    has_many :vagas
+    has_many :vagas, dependent: :destroy
     
     VALID_EMAIL_REGEX = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
     VALID_CNPJ_REGEX = /(\d{2})\.(\d{3})\.(\d{3})\/000[1-2]-(\d{2})/

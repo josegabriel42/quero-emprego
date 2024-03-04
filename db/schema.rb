@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_03_153451) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_03_210133) do
   create_table "candidatos", force: :cascade do |t|
     t.string "nome", default: "", null: false
     t.string "email", default: "", null: false
@@ -21,6 +21,16 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_03_153451) do
     t.datetime "updated_at", null: false
     t.index ["cpf"], name: "index_candidatos_on_cpf"
     t.index ["email"], name: "index_candidatos_on_email"
+  end
+
+  create_table "candidaturas", force: :cascade do |t|
+    t.text "mensagem"
+    t.integer "candidato_id", null: false
+    t.integer "vaga_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["candidato_id"], name: "index_candidaturas_on_candidato_id"
+    t.index ["vaga_id"], name: "index_candidaturas_on_vaga_id"
   end
 
   create_table "empregadores", force: :cascade do |t|
@@ -46,5 +56,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_03_153451) do
     t.index ["empregador_id"], name: "index_vagas_on_empregador_id"
   end
 
+  add_foreign_key "candidaturas", "candidatos"
+  add_foreign_key "candidaturas", "vagas"
   add_foreign_key "vagas", "empregadores"
 end

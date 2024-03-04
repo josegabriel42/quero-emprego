@@ -1,5 +1,6 @@
 class Vaga < ApplicationRecord
   belongs_to :empregador
+  has_many :candidaturas, dependent: :destroy
 
   validates :titulo, presence: { message: "Campo obrigatório" }, length: {minimum: 3, maximum: 100, message: "O título deve ter um tamanho entre 3 e 100 caracteres"}
   validates :descricao, presence: { message: "Campo obrigatório" }, length: {minimum: 5, maximum: 256, message: "A descrição deve ter um tamanho entre 5 e 256 caracteres"}

@@ -1,0 +1,61 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Candidaturas</h1>
+<% if @candidato %>
+  <h3><%= @candidato.nome %></h3>
+  <%= link_to "Adicionar candidatura", candidato_vagas_path(@candidato) %>
+<% elsif @empregador %>
+  <h3><%= @empregador.nomeEmpresa %></h3>
+<% end %>
+
+<div id="candidaturas">
+  <% @candidaturas.each do |candidatura| %>
+    <div class="item_lista" id="<%= dom_id candidatura %>">
+      <% if @candidato %>
+        <p>
+          <strong>Candidato:</strong> <%= candidatura.candidato.nome %> |
+          <strong>Email:</strong> <%= candidatura.candidato.email %> |
+          <strong>Telefone:</strong> <%= candidatura.candidato.telefone %>
+        </p>
+        <p>
+          <strong>Vaga:</strong> <%= candidatura.vaga.titulo %> |
+          <strong>Salário:</strong> R$ <%= '%.2f' % candidatura.vaga.salario %> |
+          <strong>Empresa:</strong> <%= candidatura.vaga.empregador.nomeEmpresa %>
+        </p>
+        <p>
+          <%= link_to "Ver", candidato_candidatura_path(@candidato, candidatura) %>
+        </p>
+      <% elsif @empregador %>
+        <p>
+          <strong>Candidato:</strong> <%= candidatura.candidato.nome %> |
+          <strong>Email:</strong> <%= candidatura.candidato.email %> |
+          <strong>Telefone:</strong> <%= candidatura.candidato.telefone %>
+        </p>
+        <p>
+          <%= link_to "Ver", empregador_candidatura_path(@empregador, candidatura) %>
+        </p>
+      <% else %>
+        <p>
+          <strong>Candidato:</strong> <%= candidatura.candidato.nome %> |
+          <strong>Email:</strong> <%= candidatura.candidato.email %> |
+          <strong>Telefone:</strong> <%= candidatura.candidato.telefone %>
+        </p>
+        <p>
+          <strong>Vaga:</strong> <%= candidatura.vaga.titulo %> |
+          <strong>Salário:</strong> R$ <%= '%.2f' % candidatura.vaga.salario %> |
+          <strong>Empresa:</strong> <%= candidatura.vaga.empregador.nomeEmpresa %>
+        </p>
+        <p>
+          <%= link_to "Ver", candidatura %>
+        </p>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+<div>
+  <% if @candidato %>
+    <%= link_to "Voltar", candidatos_path %>
+  <% elsif @empregador %>
+    <%= link_to "Voltar", empregador_vagas_path(@empregador) %>
+  <% end %>
+</div>

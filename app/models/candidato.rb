@@ -1,4 +1,6 @@
 class Candidato < ApplicationRecord
+    has_many :candidaturas, dependent: :destroy
+    
     VALID_EMAIL_REGEX = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
 
     validates :nome, presence: { message: "Campo obrigatório" }, length: {minimum: 3, maximum: 256, message: "O nome deve ter um tamanho entre 3 e 256 caracteres"}

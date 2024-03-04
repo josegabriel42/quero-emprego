@@ -1,0 +1,45 @@
+<div id="<%= dom_id candidatura %>">
+  <div>
+  <% if @candidato %>
+    <h3><%= candidatura.candidato.nome %></h3>
+  <% elsif @empregado %>
+    <h3><%= candidatura.vaga.titulo %></h3>
+  <% end %>
+  </div>
+
+  <div>
+    <p>
+      <strong>Mensagem:</strong>
+      <p><%= candidatura.mensagem %></p>
+    </p>
+    <hr>
+  </div>
+
+  <div>
+    <% if @candidato %>
+      <p>
+        <strong>Vaga:</strong> <%= candidatura.vaga.titulo %> |
+        <strong>Salário:</strong> R$ <%= '%.2f' % candidatura.vaga.salario %> |
+        <strong>Empresa:</strong> <%= candidatura.vaga.empregador.nomeEmpresa %>
+      </p>
+    <% elsif @empregado %>
+      <p>
+        <strong>Candidato:</strong> <%= candidatura.candidato.nome %> |
+        <strong>Email:</strong> <%= candidatura.candidato.email %> |
+        <strong>Telefone:</strong> <%= candidatura.candidato.telefone %>
+      </p>
+    <% else %>
+      <p>
+        <strong>Vaga:</strong> <%= candidatura.vaga.titulo %> |
+        <strong>Salário:</strong> R$ <%= '%.2f' % candidatura.vaga.salario %> |
+        <strong>Empresa:</strong> <%= candidatura.vaga.empregador.nomeEmpresa %>
+      </p>
+
+      <p>
+        <strong>Candidato:</strong> <%= candidatura.candidato.nome %> |
+        <strong>Email:</strong> <%= candidatura.candidato.email %> |
+        <strong>Telefone:</strong> <%= candidatura.candidato.telefone %>
+      </p>
+    <% end %>
+  </div>
+</div>

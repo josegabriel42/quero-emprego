@@ -3,9 +3,9 @@
 <h1>Vagas</h1>
 <% if @empregador %>
   <h3><%= @empregador.nomeEmpresa %></h3>
-<% end %>
-<% if @empregador %> 
   <%= link_to "Adicionar vaga", new_empregador_vaga_path %>
+<% elsif @candidato %>
+  <h3><%= @candidato.nome %></h3>
 <% end %>
 
 <div id="vagas">
@@ -20,7 +20,12 @@
       </p>
       <% if @empregador %> 
         <p>
-          <%= link_to "Ver", empregador_vaga_path(@empregador, vaga) %>
+          <%= link_to "Ver", empregador_vaga_path(@empregador, vaga) %> |
+          <%= link_to "Candidaturas", empregador_vaga_candidaturas_path(@empregador, vaga) %>
+        </p>
+      <% elsif @candidato %>
+        <p>
+          <%= link_to "Candidatar-se", candidato_vaga_new_candidatura_path(@candidato, vaga) %>
         </p>
       <% else %>
         <p>
@@ -28,5 +33,11 @@
         </p>
       <% end %>
     </div>
+  <% end %>
+
+  <% if @candidato %>
+    <%= link_to "Voltar", candidato_candidaturas_path(@candidato) %>
+  <% elsif @empregador %>
+    <%= link_to "Voltar", empregadores_path %>
   <% end %>
 </div>

@@ -1,0 +1,23 @@
+<%= form_with(model: candidatura, url: candidato_vaga_create_candidatura_path(@candidato, @vaga)) do |form| %>
+  <% if candidatura.errors.any? %>
+    <h2 style="color: red">Erro. Por favor corrija os campos marcados.</h2>
+  <% end %>
+
+  <div class="campos">
+    <% if candidatura.errors[:mensagem].any? %>
+      <div style="color: red">
+        <ul>
+          <% candidatura.errors[:mensagem].each do |error| %>
+            <li><%= error %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <%= form.label :mensagem, style: "display: block" %>
+    <%= form.text_area :mensagem %>
+  </div>
+
+  <div class="campos">
+    <%= form.submit %>
+  </div>
+<% end %>

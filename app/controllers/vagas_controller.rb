@@ -6,6 +6,9 @@ class VagasController < ApplicationController
     if params[:empregador_id]
       @empregador = Empregador.find(params[:empregador_id])
       @vagas = @empregador.vagas
+    elsif params[:candidato_id]
+      @candidato = Candidato.find(params[:candidato_id])
+      @vagas = Vaga.all
     else
       @vagas = Vaga.all
     end

@@ -1,0 +1,17 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @candidatura %>
+
+<div>
+  <% if @candidato %>
+    <%= link_to "Editar", edit_candidato_candidatura_path(@candidato, @candidatura) %> |
+    <%= link_to "Voltar", candidato_candidaturas_path(@candidato) %>
+    <br>
+    <br>
+    <%= button_to "Deletar", [@candidato, @candidatura], method: :delete %>
+  <% elsif @empregador %>
+    <%= link_to "Voltar", empregador_vaga_candidaturas_path(@empregador, @candidatura.vaga) %>
+  <% else %>
+    <%= link_to "Voltar", candidaturas_path() %>
+  <% end %>
+</div>
