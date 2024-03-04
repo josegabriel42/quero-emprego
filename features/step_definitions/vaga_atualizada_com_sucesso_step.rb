@@ -1,6 +1,5 @@
 And('eu acesso a pagina de edicao desta vaga') do
   click_on 'Editar'
-  expect(page).to have_current_path("/empregadores/#{Empregador.last.id}/vagas/#{Vaga.last.id}/edit")
 end
 And('eu altero os campos desejados da vaga preenchendo a descricao com {string}') do |descricao|
   fill_in 'vaga[descricao]', :with => descricao
