@@ -6,7 +6,7 @@ And('eu estou na pagina de listagem de vagas') do
   expect(page).to have_current_path("/empregadores/#{Empregador.last.id}/vagas")
 end
 When('eu acesso uma vaga em especifico') do
-  click_on 'Ver'
+  click_link(href: "/empregadores/#{Empregador.last.id}/vagas/#{Vaga.last.id}")
   expect(page).to have_current_path("/empregadores/#{Empregador.last.id}/vagas/#{Vaga.last.id}")
 end
 And('eu clico no botao para deletar a vaga') do
