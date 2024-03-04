@@ -2,12 +2,12 @@ And('que existe uma vaga de titulo {string}, descricao {string} e salario {doubl
   Vaga.create(titulo: titulo, descricao: descricao, salario: salario, empregador_id: Empregador.first.id)
 end
 And('eu estou na pagina de listagem de vagas') do
-  visit '/empregadores/1/vagas'
-  expect(page).to have_current_path('/empregadores/1/vagas')
+  visit "/empregadores/#{Empregador.last.id}/vagas"
+  expect(page).to have_current_path("/empregadores/#{Empregador.last.id}/vagas")
 end
 When('eu acesso uma vaga em especifico') do
   click_on 'Ver'
-  expect(page).to have_current_path('/empregadores/1/vagas/1')
+  expect(page).to have_current_path("/empregadores/#{Empregador.last.id}/vagas/#{Vaga.last.id}")
 end
 And('eu clico no botao para deletar a vaga') do
   click_button 'Deletar'

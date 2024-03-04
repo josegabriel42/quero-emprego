@@ -6,8 +6,9 @@ And('estou na pagina de empregadores') do
   expect(page).to have_current_path('/empregadores/')
 end
 And('visito o empregador desejado') do
+  empregador = Empregador.last
   expect(page).to have_content('Ver')
-  click_on 'Ver'
+  click_link(href: "/empregadores/#{empregador.id}")
 end
 And('clico para editar este empregador') do
   expect(page).to have_content('Editar')

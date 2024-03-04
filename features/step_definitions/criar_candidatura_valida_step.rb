@@ -8,8 +8,9 @@ And('criou a seguinte vaga de emprego titulo {string}, descricao {string} e sala
   Vaga.create(titulo: titulo, descricao: descricao, salario: salario, empregador_id: Empregador.first.id)
 end
 When('acesso a pagina de candidatura da vaga de emprego') do
-  visit '/candidatos/1/vagas/1/candidaturas/new'
-  expect(page).to have_current_path('/candidatos/1/vagas/1/candidaturas/new')
+  vaga = Vaga.last
+  visit "/candidatos/#{vaga.id}/vagas/1/candidaturas/new"
+  expect(page).to have_current_path("/candidatos/#{vaga.id}/vagas/1/candidaturas/new")
 end
 And('preencho minha mensagem de candidatura com {string}') do |mensagem|
   fill_in 'candidatura[mensagem]', :with => mensagem

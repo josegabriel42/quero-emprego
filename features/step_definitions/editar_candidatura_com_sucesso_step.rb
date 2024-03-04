@@ -2,8 +2,8 @@ And('que existe uma candidatura desse candidato nessa vaga com a mensagem {strin
   Candidatura.create(vaga_id: Vaga.first.id, candidato_id: Candidato.first.id, mensagem: mensagem)
 end
 When('acesso a pagina de edicao de candidaturas') do
-  visit '/candidatos/1/candidaturas/1/edit'
-  expect(page).to have_current_path('/candidatos/1/candidaturas/1/edit')
+  visit "/candidatos/#{Candidato.last.id}/candidaturas/#{Candidatura.last.id}/edit"
+  expect(page).to have_current_path("/candidatos/#{Candidato.last.id}/candidaturas/#{Candidatura.last.id}/edit")
 end
 And('altero a mensagem de candidatura para {string}') do |mensagem|
   fill_in 'candidatura[mensagem]', :with => mensagem

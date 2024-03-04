@@ -2,8 +2,8 @@ Given('O empregador de nomeEmpresa {string}, nome {string}, endereco {string}, e
   Empregador.create(nomeEmpresa: nomeEmpresa, nome: nome, endereco: endereco, email: email, cnpj: cnpj, telefone: telefone)
 end
 And('que eu esteja na pagina de criacao de vaga') do
-  visit '/empregadores/1/vagas/new'
-  expect(page).to have_current_path('/empregadores/1/vagas/new')
+  visit "/empregadores/#{Empregador.last.id}/vagas/new"
+  expect(page).to have_current_path("/empregadores/#{Empregador.last.id}/vagas/new")
 end
 When('eu preencho os campos obrigatorios com os dados da vaga titulo {string}, descricao {string} e salario {double}') do |titulo, descricao, salario|
   fill_in 'vaga[titulo]', :with => titulo
